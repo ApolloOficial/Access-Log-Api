@@ -1,21 +1,10 @@
 package org.apollo.log.api.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.apollo.log.api.enums.AccessStatusEnum;
 
 import java.time.LocalDateTime;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class AccessLogDTO {
-
-    private String id;
-    private String userName;
-    private String userRole;
-    private LocalDateTime loginTimestamp;
-    private LocalDateTime logoutTimestamp;
-    private String ipAddress;
-    private String accessStatus;
+public record AccessLogDTO(String id, String sessionId, String employeeId, String email, String userRole,
+                           LocalDateTime loginTimestamp, LocalDateTime logoutTimestamp, String ipAddress,
+                           AccessStatusEnum accessStatus) {
 }
